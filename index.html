@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Relevant Life Insurance Tax Saving [Calculator] 2020/21 </title>
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<main>
+    <header>
+        <h1 class="bbcalc_main-heading">
+            Relevant Life Insurance Tax Saving Calculator
+        </h1>
+    </header>
+
+    <!-- calculator section -->
+    <section>
+        <div class="bbcalc_container">
+            <div class="bbcalc_about-container">
+                <img src="https://media.istockphoto.com/vectors/health-insurance-icon-vector-id1059699278?k=6&m=1059699278&s=612x612&w=0&h=2Co5ScyGCuEt6InaBcGyjOB3cJ3-6OQlkwNiAPlfWgE="
+                     alt="" id="bbcalc_logo"/>
+                <h3>Relevant Life Insurance Calculator</h3>
+                <p>Calculate the tax savings you can make by taking out a company paid Relevant Life Insurance
+                    policy instead of a personal Life Insurance policy.</p>
+                <img src="https://image.freepik.com/free-vector/illustration-family-life-insurance_53876-40786.jpg"
+                     alt="" id="bbcalc_promo-img"/>
+            </div>
+            <div class="bbcalc_form-container">
+                <form action="javascript:void(0);" method="post" id="bbcalc_calculator_form" name="bbcalc_calculator_form">
+                    <div>
+                        <label for="bbcalc_premium" class="bbcalc_label-title">
+                            Monthly Premium
+                        </label>
+                        <input type="number" name="bbcalc_premium" id="bbcalc_premium"/>
+                    </div>
+                    <div class="bbcalc_form-section">
+                        <label class="bbcalc_label-title">
+                            Is the premium paid from dividends?
+                        </label>
+                        <label for="yes" class="bbcalc_input-label">
+                            <input type="radio" name="bbcalc_is_dividends" id="yes" value="yes"/>Yes
+                        </label>
+                        <label for="no" class="bbcalc_input-label">
+                            <input type="radio" name="bbcalc_is_dividends" id="no" value="no" checked/> No
+                        </label>
+                    </div>
+                    <div class="bbcalc_form-section">
+                        <label class="bbcalc_label-title">
+                            Your Highest Rate of <span id="bbcalc_tax-type">Income Tax</span>
+                        </label>
+                        <label for="20" class="bbcalc_input-label">
+                            <input type="radio" name="bbcalc_income_tax_rate" id="20" value="20" checked/>
+                            <span>20%</span>
+                        </label>
+                        <label for="40" class="bbcalc_input-label">
+                            <input type="radio" name="bbcalc_income_tax_rate" id="40" value="40"/>
+                            <span>40%</span>
+                        </label>
+                        <label for="45" class="bbcalc_input-label">
+                            <input type="radio" name="bbcalc_income_tax_rate" id="45" value="45"/>
+                            <span>45%</span>
+                        </label>
+                    </div>
+                    <div class="bbcalc_form-section col_three_year">
+                        <label class="bbcalc_label-title">
+                            Years left on Policy
+                        </label>
+
+                        <div class="form_input">
+                            <input type="number" name="bbcalc_premium_year" id="bbcalc_premium_year">
+                        </div>
+                    </div>
+                    <div class="bbcalc_">
+                        <button class="bbcalc_learn-more" id="bbcalc_calculate-btn">
+                            <span class="bbcalc_circle" aria-hidden="true">
+                              <span class="bbcalc_icon bbcalc_arrow"></span>
+                            </span>
+                            <span class="bbcalc_button-text">Calculate</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="bbcalc_result">
+        <section>
+            <div class="bbcalc_graph-container">
+                <div class="bbcalc_info">
+                    <img src="https://media.istockphoto.com/vectors/health-insurance-icon-vector-id1059699278?k=6&m=1059699278&s=612x612&w=0&h=2Co5ScyGCuEt6InaBcGyjOB3cJ3-6OQlkwNiAPlfWgE="
+                         alt=""/>
+                    <h3>Personal vs Relevant Life Insurance</h3>
+                    <p>Compare the total cost of a <span id="bbcalc_premium_value">£0.00</span> Life Insurance policy which is paid for from your personal
+                        bank
+                        account to a company-paid Relevant Life Insurance policy.</p>
+                </div>
+                <div id="bbcalc_chart-container">
+                    <canvas id="bbcalc_myChart"></canvas>
+                    <canvas id="bbcalc_mobileChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="bbcalc_table-container">
+                <div class="bbcalc_info">
+                    <img src="https://media.istockphoto.com/vectors/health-insurance-icon-vector-id1059699278?k=6&m=1059699278&s=612x612&w=0&h=2Co5ScyGCuEt6InaBcGyjOB3cJ3-6OQlkwNiAPlfWgE="
+                         alt=""/>
+                    <h3>Your Relevant Life Tax Savings</h3>
+                    <p>Paying for Life Insurance personally means you'll first need to pay income tax and Employer and
+                        Employee National Insurance contributions on the money used for premiums. With Relevant Life
+                        Insurance the company pays for you direct from its accounts, so this doesn't need to be taken
+                        into
+                        consideration.</p>
+                </div>
+                <div class="bbcalc_grid-container" id="bbcalc_tax-saving-table">
+                    <div class="bbcalc_blank-col"></div>
+                    <div class="bbcalc_header bbcalc_bd-right">Personal Life Cover</div>
+                    <div class="bbcalc_header">Relevant Life Cover</div>
+                    <div class="bbcalc_blank-col bbcalc_bd-right-gray"></div>
+                    <div class="bbcalc_sub-header">Cost To Individual</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">Gross Salary</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray" id="bbcalc_plc_gross_salary">£0</div>
+                    <div class="bbcalc_bg-lightgray">£0</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray">Premium</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray" id="bbcalc_plc_premium">£0</div>
+                    <div class="bbcalc_bg-white">£0</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">Employee National Insurance</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray" id="bbcalc_plc_employee_ni">£0</div>
+                    <div class="bbcalc_bg-lightgray">£0</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray">Personal Tax</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray" id="bbcalc_plc_personal_tax">£0</div>
+                    <div class="bbcalc_bg-white">£0</div>
+                    <div class="bbcalc_blank-col bbcalc_bd-right-gray"></div>
+                    <div class="bbcalc_sub-header">Cost To Business</div>
+
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">Premium</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">£0</div>
+                    <div class="bbcalc_bg-lightgray" id="bbcalc_CTB_premium">£0</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray">Employer National Insurance</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray" id="bbcalc_CTB_employee_ni">£0</div>
+                    <div class="bbcalc_bg-white">£0</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">Gross Cost</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray" id="bbcalc_CTB_grosscost1">£0</div>
+                    <div class="bbcalc_bg-lightgray" id="bbcalc_CTB_grosscost2">£0</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray">Corporation Tax Paid</div>
+                    <div class="bbcalc_bg-white bbcalc_bd-right-gray" id="bbcalc_CTB_taxrelief1">£0</div>
+                    <div class="bbcalc_bg-white" id="bbcalc_CTB_taxrelief2">£0</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray">Total Cost</div>
+                    <div class="bbcalc_bg-lightgray bbcalc_bd-right-gray" id="bbcalc_totalCost1">£0</div>
+                    <div class="bbcalc_bg-lightgray" id="bbcalc_totalCost2">£0</div>
+                    <div class="bbcalc_footer">Total Savings: <span id="bbcalc_totalSaving">0.00%</span>
+                        <br>
+                        This is a saving of <span id="bbcalc_monthlySaving">£0.00</span> per month or
+                        <span id="bbcalc_monthlySavingYear">£0.00</span> per year and
+                        <span id="bbcalc_annualSaving">£0.00</span> over the remaining term
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+
+<!-- javascript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- custom scripts -->
+<script async defer src="./js/custom.js"></script>
+</body>
+</html>

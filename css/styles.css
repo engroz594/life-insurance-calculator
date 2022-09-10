@@ -1,0 +1,480 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.bbcalc_bg-darkgray {
+    background: #bfbfbf;
+}
+
+.bbcalc_bg-lightgray {
+    background: #f3f3f3;
+}
+
+.bbcalc_bg-white {
+    background: #ffffff;
+}
+
+header h1.bbcalc_main-heading {
+    margin: 1em auto;
+    width: 16em;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.bbcalc_container {
+    max-width: 768px;
+    display: flex;
+    flex-direction: row;
+    margin: 5em auto;
+    padding: 2em 1.5em;
+    box-shadow: 0px 0px 10px 0px lightgray;
+    border-top: 1em solid #570cd6;
+}
+
+.bbcalc_about-container {
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+    padding: 0 1em 0 0;
+    border-right: 1px dashed lightgray;
+}
+
+.bbcalc_form-container {
+    width: 50%;
+    display: inline-block;
+    padding: 0 0 0 1.5em;
+}
+
+.bbcalc_about-container img#bbcalc_logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.bbcalc_about-container h3 {
+    margin: 0 0 2em 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.bbcalc_about-container p {
+    font-size: 12px;
+}
+
+.bbcalc_about-container img#bbcalc_promo-img {
+    width: 300px;
+    height: 270px;
+    object-fit: cover;
+}
+
+#bbcalc_calculator_form input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#bbcalc_calculator_form label.bbcalc_label-title {
+    font-weight: 300;
+}
+
+#bbcalc_calculator_form div.bbcalc_form-section {
+    margin: 1em 0;
+}
+
+#bbcalc_calculator_form div.bbcalc_form-section label.bbcalc_input-label {
+    display: block;
+    padding: 1em;
+    border: 1px solid lightgray;
+    margin: 0.5em 0;
+}
+
+#bbcalc_calculator_form div.bbcalc_form-section label.bbcalc_input-label > input {
+    margin: 0 1em 0 0;
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    .bbcalc_form-section input[type=radio] {
+        --active: #275EFE;
+        --active-inner: #fff;
+        --focus: 2px rgba(39, 94, 254, .3);
+        --border: #BBC1E1;
+        --border-hover: #275EFE;
+        --background: #fff;
+        --disabled: #F6F8FF;
+        --disabled-inner: #E1E6F9;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 21px;
+        outline: none;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        margin: 0;
+        cursor: pointer;
+        border: 1px solid var(--bc, var(--border));
+        background: var(--b, var(--background));
+        transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    }
+
+    .bbcalc_form-section input[type=radio]:after {
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        position: absolute;
+        transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
+
+    .bbcalc_form-section input[type=radio]:checked {
+        --b: var(--active);
+        --bc: var(--active);
+        --d-o: .3s;
+        --d-t: .6s;
+        --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+    }
+
+    .bbcalc_form-section input[type=radio]:disabled {
+        --b: var(--disabled);
+        cursor: not-allowed;
+        opacity: 0.9;
+    }
+
+    .bbcalc_form-section input[type=radio]:disabled:checked {
+        --b: var(--disabled-inner);
+        --bc: var(--border);
+    }
+
+    .bbcalc_form-section input[type=radio]:disabled + label {
+        cursor: not-allowed;
+    }
+
+    .bbcalc_form-section input[type=radio]:hover:not(:checked):not(:disabled) {
+        --bc: var(--border-hover);
+    }
+
+    .bbcalc_form-section input[type=radio]:focus {
+        box-shadow: 0 0 0 var(--focus);
+    }
+
+    .bbcalc_form-section input[type=radio]:not(.switch) {
+        width: 21px;
+    }
+
+    .bbcalc_form-section input[type=radio]:not(.switch):after {
+        opacity: var(--o, 0);
+    }
+
+    .bbcalc_form-section input[type=radio]:not(.switch):checked {
+        --o: 1;
+    }
+
+    .bbcalc_form-section input[type=radio] + label {
+        font-size: 14px;
+        line-height: 21px;
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+        margin-left: 4px;
+    }
+
+    .bbcalc_form-section input[type=checkbox]:not(.switch) {
+        border-radius: 7px;
+    }
+
+    .bbcalc_form-section input[type=checkbox]:not(.switch):after {
+        width: 5px;
+        height: 9px;
+        border: 2px solid var(--active-inner);
+        border-top: 0;
+        border-left: 0;
+        left: 7px;
+        top: 4px;
+        transform: rotate(var(--r, 20deg));
+    }
+
+    .bbcalc_form-section input[type=checkbox]:not(.switch):checked {
+        --r: 43deg;
+    }
+
+    .bbcalc_form-section input[type=checkbox].switch {
+        width: 38px;
+        border-radius: 11px;
+    }
+
+    .bbcalc_form-section input[type=checkbox].switch:after {
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background: var(--ab, var(--border));
+        transform: translateX(var(--x, 0));
+    }
+
+    .bbcalc_form-section input[type=checkbox].switch:checked {
+        --ab: var(--active-inner);
+        --x: 17px;
+    }
+
+    .bbcalc_form-section input[type=checkbox].switch:disabled:not(:checked):after {
+        opacity: 0.6;
+    }
+
+    .bbcalc_form-section input[type=radio] {
+        border-radius: 50%;
+    }
+
+    .bbcalc_form-section input[type=radio]:after {
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: var(--active-inner);
+        opacity: 0;
+        transform: scale(var(--s, 0.7));
+    }
+
+    .bbcalc_form-section input[type=radio]:checked {
+        --s: .5;
+    }
+}
+
+
+div.bbcalc_ button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+}
+
+div.bbcalc_ button.bbcalc_learn-more {
+    width: 100%;
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 1.625rem;
+}
+
+button.bbcalc_learn-more .bbcalc_circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+button.bbcalc_learn-more .bbcalc_circle .bbcalc_icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.bbcalc_learn-more .bbcalc_circle .bbcalc_icon.bbcalc_arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.bbcalc_learn-more .bbcalc_circle .bbcalc_icon.bbcalc_arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+button.bbcalc_learn-more .bbcalc_button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 900;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+button:hover .bbcalc_circle {
+    width: 100%;
+}
+
+button:hover .bbcalc_circle .bbcalc_icon.bbcalc_arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+button:hover .bbcalc_button-text {
+    color: #fff;
+}
+
+/**
+* Graph style
+*/
+.bbcalc_graph-container {
+    max-width: 768px;
+    margin: 5em auto;
+    padding: 1em 2em;
+    box-shadow: 0px 0px 10px 0px lightgray;
+}
+.bbcalc_graph-container #bbcalc_chart-container {
+    padding: 2em;
+}
+
+.bbcalc_graph-container .bbcalc_info {
+    text-align: center;
+    padding: 0 1em 0 0;
+    border-bottom: 1px dashed lightgray;
+}
+
+.bbcalc_graph-container .bbcalc_info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.bbcalc_graph-container .bbcalc_info h3 {
+    margin: 0 0 1.5em 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.bbcalc_graph-container .bbcalc_info p {
+    font-size: 14px;
+    margin: 0 0 1em 0;
+}
+
+#bbcalc_mobileChart {
+    display: none !important;
+}
+
+/**
+* Tax Saving Grid Styles
+*/
+.bbcalc_table-container {
+    max-width: 768px;
+    margin: 5em auto;
+    padding: 1em;
+    box-shadow: 0px 0px 10px 0px lightgray;
+}
+
+.bbcalc_table-container .bbcalc_info {
+    text-align: center;
+    padding: 0 1em 0 0;
+    border-bottom: 1px dashed lightgray;
+}
+
+.bbcalc_table-container .bbcalc_info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.bbcalc_table-container .bbcalc_info h3 {
+    margin: 0 0 1.5em 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.bbcalc_table-container .bbcalc_info p {
+    font-size: 14px;
+    margin: 0 0 1em 0;
+}
+
+.bbcalc_grid-container {
+    display: grid;
+    max-width: 768px;
+    margin: 1em auto 0 auto;
+    grid-template-columns: auto auto auto;
+    padding: 2px;
+}
+
+.bbcalc_grid-container > div {
+    text-align: center;
+    padding: 1em 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.bbcalc_blank-col {
+    background-color: white;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.bbcalc_header {
+    background-color: rgb(214, 68, 68);
+    color: white;
+}
+
+.bbcalc_sub-header {
+    background-color: rgb(162, 162, 162);
+    color: white;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.bbcalc_footer {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: rgb(214, 68, 68);
+    color: white;
+}
+
+.bbcalc_bd-right-gray {
+    border-right: 0.5px solid lightgray;
+}
+
+.bbcalc_bd-right {
+    border-right: 1px solid white;
+}
+
+.bbcalc_invalid-input .bbcalc_error {
+    margin: 0;
+    font-size: 12px;
+    color: red;
+}
+
+.bbcalc_invalid-input > label {
+    color: red;
+}
+
+.bbcalc_invalid-input > input {
+    border-color: red;
+}
+
+#bbcalc_result {
+    display: none;
+}
+
+@media only screen and (max-width: 665px) {
+    #bbcalc_myChart {
+        display: none !important;
+    }
+    #bbcalc_mobileChart {
+        display: block !important;
+    }
+}
