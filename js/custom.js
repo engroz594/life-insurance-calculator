@@ -78,7 +78,7 @@ $(document).ready(function () {
                 let totalCost1 = gross_cost - corporationTaxRelief1;
                 let totalCost2 = premium - corporationTaxRelief2;
                 let total_saving_monthly = parseFloat(totalCost1) - parseFloat(totalCost2);
-                let total_saving_annually = total_saving_monthly * 12;
+                let total_saving_annually = total_saving_monthly.toFixed(2) * 12;
                 let total_savings = (total_saving_monthly / parseFloat(totalCost1)) * 100;
 
                 $('#bbcalc_plc_gross_salary').text("£" + gross_salary.toFixed(2));
@@ -118,7 +118,7 @@ $(document).ready(function () {
                 let totalCost1 = gross_cost - corporationTaxRelief1;
                 let totalCost2 = premium - corporationTaxRelief2;
                 let total_saving_monthly = parseFloat(totalCost1) - parseFloat(totalCost2);
-                let total_saving_annually = total_saving_monthly * 12;
+                let total_saving_annually = total_saving_monthly.toFixed(2) * 12;
                 let total_savings = (total_saving_monthly / parseFloat(totalCost1)) * 100;
 
                 $('#bbcalc_plc_gross_salary').text("£" + gross_salary.toFixed(2));
